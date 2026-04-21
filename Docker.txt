@@ -1,0 +1,104 @@
+Docker Basic - 
+
+# Container is like a virtual machine 
+
+# Docker is advance version of virtualization, its make containerization
+
+# containerization is a advance version of virtualization
+
+# Docker is an open source contralise platform designed to create, deploy and run application
+
+# Docker uses containers on the host OS to run application to use the same linux kernel as a system on the host computer, rather than creating a whole virtual OS
+
+# we can install docker on any OS but docker engine run natively on linux distribution
+
+# Docker written in "GO" language 
+
+# Docker is tools that perform OS level virtualization, also know as containerization
+
+-----------------------
+
+Docker Advantanges - 
+
+# No pre allocatio of ram 
+
+# Docker enables you to build a containers images and use that same image across every step of the deployment process
+
+# less cost , light weight, 
+
+# it can run on physical machine, Hardware, or cloud 
+
+# you can re-use the image 
+
+# it took very less time to create container
+
+-----------------------------------------
+
+Disadvantage Docker -
+
+# Docker is not a good solution for application that requires rich GUI
+
+# Diffucult to manage large amount of container 
+
+# Docker does not provide cross-platform compatibility means if an application is designed to run in a docker container on windows then it cant run an linux or vice versa 
+
+# docker is suitable when the develiopment OS and testing OS are the same if the OS different we should use use VM
+
+# No solution for data recovery and backup 
+
+----------------------------------------
+
+Docker file ---> Image --> Container
+
+# container is a layer file system
+
+--------------------------------------
+Docker Eco system - set of software or packages
+
+1. Docker Client - work palce 
+2. Docker Daemon or server or docker engine - image to container convert
+3. Docker Hub registry - image save place 
+4. Docker Images - like AMI, template 
+5. Docker Compose -
+
+#  Docker Daemon (docker engine)- Docker daemon runs on the host os, it is responcibale for runing conatiner to manage docker service, and docker daemon can communicate with other daemon
+
+# Docker Client -  Docker can interact with docker daemon through a client(CLI)
+	- Docker client uses command CLI and Rest API to communicate with the docker daemon
+	- when a client runs any server command on the docker client terminal, the client terminal these docker command to the docker daemon
+	- it is possible for docker client to communicate with more than one daemon
+	
+Docker Host -  is used to provide an environment to excute and run application, it contains the docker daemon, images, containers, network and storage 
+	
+Docker Hub / Registery -  Docker registry manage and shares the docker images 
+	- two type of registry
+	-  public registery - is also called as docker hub
+	-  private registery  it is used to share images within the enterprise 
+
+--------------------------------------------------------
+	
+Docker Images -  are the ready only binary templates used to create docker containers, 
+	- or single file with all dependencies and configuration required to run a program(container)
+	 
+Way to create an Image -
+1. Take images from docker hub
+2. create images from docker files 
+3. create images from exiting docker container
+
+---------------------------------------------------------
+
+Docker Container - 
+- container hold the entier package that is needed to run the application 
+- In other words, we can say that the image is a template and the conatiner is a copy of that template.
+- container is a like a virtual machine
+- images become container when they run on decider engines.
+
+----------------------------------------------------------
+	
+	
+
+
+
+
+
+

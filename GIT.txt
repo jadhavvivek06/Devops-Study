@@ -1,0 +1,297 @@
+# Git -  Source code management tool (Software tool)
+		- git is primaraly used for code managment, which acts like a version control system and which allow to do collabration  
+
+# Git is completely free 
+
+# There is a 2 type - 
+	- Centralised version control system (old)(CVCS)
+	- Distributed Version control system 
+
+# Drawbacks - CVCS
+	1. It is not locally available, meaning you always need to be connected to a network to perform any action
+	2. Since everything is centralised, if cerntral server gets failed, you will lose entire data
+
+# Distributed Version control system -  Created by Linus Torvald - 2005
+- In Distributed version control system every contributer has a local copy or clone of the main repository i.e everyone maintain a local reporsitory of their own which contain all the files and metadata present in main repository. 
+
+# Git install - install git on machine
+
+# git init -  git initilize -  it will create .git folder  and convert in reporsitory
+		- 1. working / workspace directory 
+		  2. Staging area
+		  3. Local Repo
+		  
+	- Working directory --> staging area			     =  add
+	- Staging area --> local repo 						 =  commit 
+	- local repo  ---> github / gitlab 					 =  Push
+	- github / gitlab  ---> local repo					 =  Pull
+	
+# Local repo -  It means our local machine repository
+# Central Repo - It means central repository (Github/gitlab)
+
+# Repository  - is a place where you have all your code or kind of folder on server 
+# Working Directory -  Where you see files physically and do modification, at the time you can work on perticular branch 
+
+# Commit - 
+			- store changes in repository, at the time of commit you will get commit id 
+			- commit id is 40 alphanumric charater
+			- commit id will help you to track the changes
+			- commit is also named as SHA1 hash
+			
+# commit id -  referance to identify each changes 	
+
+# Tag - Tag assign a meaningful name with a specific version in the repositiory, once a tag is created for perticular save even if you created a new commit it will not be update 
+
+# push -  push operation copies changes from a local repo to Remote repo
+
+# pull - remote  repo to local repo (machine)
+		 
+------------------------------------------------------
+		 
+Git Installtion -
+
+Linux -  sudo apt-get install git
+windows - download from official git site
+mac os - brew install git 
+
+# git --version = git version check
+
+# which git     = git directory check 
+
+----------------------------------------------------------------
+
+Git Configurations - 
+
+# git init = git initilization ( run this command in folder which you want to create a repo)
+
+# git status = show the workspace status 
+
+# git add . =  workspace to staging all data move
+
+# git add (filename)  = workspace to staging mentioned files move
+
+# git rm --cache . or (filename) = workspace to staging mentioned files revert or unstage 
+
+# git restore --staged <file>  = restore the changes back 
+
+# git reset . = reset all file from staging area
+
+# git commit -m "main page" = staging to local repo data move 
+
+# git restore (filename) =  restore the deleted track file 
+
+# git checkout (filename) = restore the deleted track file
+
+# git log = show the logs
+
+# git show <commit-id> =  find the who commited this and added contain
+
+# git log --oneline  =  all commit in one line 
+
+# git log --oneline --pretty = commit id will small with rest details 
+
+# git remote add origin <central git url> = add origin data in the configuration
+
+# git push -u origin master = local repo to central repo(github) sync - required id pass 
+
+# git config --global --edit =  edit the global account configureations 
+
+# git config --global user.name "jadhavvivek06" =  setup the username for git global
+
+# git config --global email "jadhavvivek06@gmail.com" =  setup the email id 
+
+
+---------------------------------
+Gitignore =  to ignore some file while committing
+	-  create one hidden file .gitignore and enter file format which you want to ignore 
+	- eg .pdf 
+
+# git add .gitignore = add gitignore file
+	- add skip file names in .gitignore file
+	- and need to commit .gitignore file only that case this will work 
+	
+-------------------------------------
+
+Branch -  
+
+# Branch - product is same, so one reporsitory but different task
+		 - each task has one sperate branch, after done with code merge other branches with master
+		 - usefull for parallery working
+		 - default branch name is master
+		 - you can create any no of branches
+		 - changes are personal to that particular branch (branch  commit)
+		 - file created in workspace will be visible in any of the brach workspace untill you commit, once you commit then that file belongs to that particular branch 
+		 - when created new branch , data copied exiting branch is copied to new branch 
+		 
+	Master - best/stable code
+	stagging -  pre prod state
+	devlope -  devlopment branch 
+	feature -  working branch for devloper  
+	
+# git branch (name) =  create new branch
+
+# git checkout -b dev = create new branch dev and move there
+
+# git branch 		= check branch (* star means current branch)
+
+# git checkout (name) = chnage branch 
+
+# git branch -d (name) =  delete branch 
+
+# git branch -D (name) = force delete branch
+
+--------------------------------------------------------------------
+
+Merge - when same name file having different content in different branches, if you do merge, conflict occur 
+	- conflict occur when you merge the branches
+
+# git merge (branch name)- merge the branch (you have to present in current branch where you want to merge)
+	- go to the file and make a chnages as per our requirement , and after editing the file no need to merge it again . simply add the file in staging area and commit .
+
+# git merge --abort = merge aborted
+
+# git diff = The 'git diff' command helps to identify the differences between the state's repositories 	or file
+
+--------------------------------------------------------------
+
+Git Squash - To “squash” in Git means to combine multiple commits into one. You can do this at any point in time (by using Git’s “Interactive Rebase” feature), though it is most often done when merging branches.
+
+# git merge (branchname) --squash  =  features added but on same commit id 
+
+
+-----------------------------
+
+Git Stashing -  supoose you implementing a new feature for your product and your code is in progress and suddenly a customer escalation comes bcs of this you have keep aside your work for few hours. and you cannot commit you uncomplete code also cannot throw your current work, so that you need temporary storge to save your current work that case stashing works 
+
+# git stash  = stash the files
+
+# git stash pop = stash work reverted
+
+# git stash drop = used to delete a stash from the queue. Generally, it deletes the most recent stash.
+
+# git stash list =  to see the stash item list
+
+# git stash apply stash@{1}  = to apply stash item 
+
+# git stash clear =  clear the stash item 
+
+	- if you restore data from stash , still data show in stash.
+
+--------------------------------------------
+
+Git reset -  is a powerfull command that is a used to undo local changes to the state of a git repo
+
+# git reset . =  reset from staging to working space
+
+# git reset --hard = delete from staging and working space as well
+
+# git reset --mixed = The 'git reset --mixed' command is used to undo changes to the working directory and staging area
+
+------------------------------------------------------------------
+
+Git Revert -  the recert command helps you undo an exiting commit.
+	- it does not delete any data in this process instead rather git create a new commit with the including file reverted to their previous state so your version control history moves forward while the state of your files moves backwords.
+
+# git revert (commit id ) =  revert the chnages 
+
+hard 
+soft
+mix
+  
+
+---------------------
+
+Git Hooks -
+
+pre-commit hooks - make a pre commit file and add the pre commit check, when you will going to commit the changes that time its check the code inform you code error
+
+
+
+----------------------------------------------
+
+Remove untracked - 
+
+# git clean -n (dry run)
+# git clean -f (forcefully remove untracked files)
+
+--------------------------
+
+Tag -  tag operations allow giving meaningful names to a specific version in the repositiory
+
+# git tag -a (tagname) -m (message)    = to apply tag
+						  (commit id)
+
+# git tag 	=	to see the list of tags
+
+# git show (tag name ) = to see particular commit content by using tagname
+
+# git tag -d (tagname) =  to delete a tag 
+
+--------------------------------
+
+Github Clone =  It create a local repor automatically in our machine with the same name as in github account 
+
+# git Clone (url of github repo)
+
+# git remote -v = provide a origin of current repo
+
+------------------------------
+Pull , Fetch, Push, personal access token 
+
+Pull - pull from origin only branch changes to local
+
+fetch -  pull from all branches all chnages origin to local
+
+Push -  push is used to push local chnages to origin or github 
+
+Token - create classic access token 
+
+
+# git pull origin main =  take pull from origin main to local 
+
+# git remote set-url --add origin https://(token)@(github url) = setup the token with url our global repo
+
+# git remote set-url --delete origin (url) =  to delete setuped url
+
+# git fetch origin main = Pull your remote changes to the local branch
+
+-------------------------------------
+Fork -  a fork is copy of a repository, forking a repositiory allows you to freely experiment with chnages without affecting the original project 
+
+
+Hotfix - 
+
+-------------------------
+
+Rebase -   Rebasing is the process of moving or combining a sequence of commits to a new base commit. Rebasing is most useful and easily visualized in thecontext of a feature branching workflow. The primary reason for rebasing is to maintain a linear project history.
+
+# git rebase dev =  rebase dev branch into the master 
+
+# git pull origin master --rebase =  rebase your global or local branch history 
+
+-----
+
+cherry-pick - pick the perticular commit and merge into other branch
+	- Cherry picking is the act of picking a commit from a branch and applying it to another. git cherry-pick can be useful for undoing changes. For example, say a commit is accidentally made to the wrong branch. You can switch to the correct branch and cherry-pick the commit to where it should belong.
+
+
+# git cherry-pick (commit id ) =  cherry-pick the commit and merge 
+
+-----------------
+
+
+
+
+
+	
+	
+
+ 
+	
+
+
+
+
+
+	
+	
