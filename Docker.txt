@@ -94,8 +94,115 @@ Docker Container -
 - images become container when they run on decider engines.
 
 ----------------------------------------------------------
-	
-	
+
+Docker Installation -
+
+# Yum install docker -y = install docker 
+
+# which docker = check docker is available or not 
+
+# docker -v / --version = docker version check
+
+# docker info / service docker status =  docker service status 
+
+-----------------------------------------------------------------
+Docker Commands
+
+# docker images =  to check stored images 
+
+# docker search (image name)  - eg, docker search jenkins =  find out images in docker hub
+
+# docker pull (image name)  - eg, docker pull jenkins = download image from dockerhub to local machine
+
+# run is combination of create and start  also, -it means - interactive mode terminal, --name- used for provide a name for the container 
+
+# docker run -it --name testdocker ubuntu /bin/bash =  pull the image ubuntu and run the container with name testdocker 
+
+# docker ps =  check runing container
+
+# docker ps -a =  check all containers (running and stop)
+
+# docker ps -aq =  check all containers (running and stop) it will show only container id 
+
+# docker start (container name) = to start container
+
+# docker attach (container name)  =  login into the container (need container stared)
+
+# docker stop (container name) =  stop the container (you should be outside of container and conatiner should be stop state) 
+
+# docker rm (container name) = remove container   
+
+# docker rm -f (container name) = forcefully remove conatiner
+
+# docker rmi (imagename) = remove docker image 
+
+---------------------------------------------------------------
+
+# docker diff (containername) - check the chnages from previous image to current state
+
+# docker commit (newcontainername) (imagename) = create image from container 
+
+------------------------------------------------
+
+Dockerfile -  dockerfile is basically a test file it contains some set of instarctions, which helps automation of docker image creation 
+	- D capital in docker file name
+
+Dockerfile components - 
+
+# FROM = for base image this command must be on top of the dockerfile
+
+# RUN = to excute command it will create a layer in image
+
+# MAINTAINER = auther/ owner/ description
+
+# COPY = copy file from local system (docker vm) we need to provide source, destination we cant download file from internet and any remote repo
+
+# ADD = similar to copy but its provide feature to download files from internet also we extract file at docker image side
+
+# EXPOSE = to expose ports such as port 8080 for tomcat. port 80 for ngnix etc 
+
+# WORKDIR = to set working directory for a container 
+
+# CMD =  execute commands but during container creation 
+
+# ENTRYPOINT = similar to CMD but has higher priority over CMD, first command will be executed by ENTRYPOINT only
+
+# ENV = environment variable 
+
+# ARG = 
+
+-----------------------------------------------------------------
+
+# docker build -t (newimagename) . = create image using docker file
+
+------------
+
+Volume 
+
+# volume is simple a direvtory inside our container
+
+# firstly  we have to declare the directory as a volume and then share volume 
+
+# even if we stop container, still we can access volume
+
+# volume will be created in one container
+
+# you can declare a directory as a volume  only while creating container
+
+# you cant create volume from existing container 
+
+# you can share one volume across any number of container
+
+Benifits of volume - 
+
+# Decoupling container from storage 
+
+# share volume among different containers
+
+# attached volume to containers 
+
+# on deleting container volume does not delete 
+
 
 
 
