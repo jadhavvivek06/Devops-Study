@@ -128,6 +128,8 @@ Docker Commands
 
 # docker attach (container name)  =  login into the container (need container stared)
 
+# docker exec -it (container name) /bin/bash = login into the container with new process (need container stared)
+
 # docker stop (container name) =  stop the container (you should be outside of container and conatiner should be stop state) 
 
 # docker rm (container name) = remove container   
@@ -140,7 +142,7 @@ Docker Commands
 
 # docker diff (containername) - check the chnages from previous image to current state
 
-# docker commit (newcontainername) (imagename) = create image from container 
+# docker commit (containername) (imagename) = create image from container 
 
 ------------------------------------------------
 
@@ -170,6 +172,16 @@ Dockerfile components -
 # ENV = environment variable 
 
 # ARG = 
+
+e.g. 
+
+FROM ubuntu
+WORKDIR /tmp
+RUN echo "This is vivek machine" > /tmp/vivek.txt 
+COPY  a1.txt /tmp
+
+Command - 
+docker build  -t newimage .
 
 -----------------------------------------------------------------
 
@@ -202,6 +214,86 @@ Benifits of volume -
 # attached volume to containers 
 
 # on deleting container volume does not delete 
+
+----------------------------------------------------
+
+$ Creating volume from docker file e.g.
+
+FROM ubuntu
+VOLUME ["/myvolume1"]		(docker file)
+
+docker build -t myimage . 	( create image from dockerfile)
+
+docker run -it --name newcontainer myimage /bin/bash ( create container from image)
+
+Now share volume with another container 
+docker run -it --name container2 --privileged=true --volumes-from newcontainer ubuntu /bin/bash 
+
+Note - voulme share should create only at the time of container create
+and or declare in dockerfile 
+
+$ Createb volume by using command and share with another conatiner at time 2nd container create
+docker run -it --name con3 -v /volume1 ubuntu /bin/bash 
+
+docker run -it --name con4 --privileged=true --volumes-from con3 ubuntu /bin/bash 
+
+------------------------------------------------------------
+
+$ Directory mapping host machine to container 
+
+# docker run -it --name mapcontainer -v /home/ec2-user:/hostmachine --privileged=true ubuntu /bin/bash 
+
+------------------------------------------------------------
+$ Some other commands
+
+# docker volume ls = list the docker volumes-from
+
+# docker volume create (volume name) =  create docker volume 
+
+# docker volume rm (volume name) =  delete the listed volume 
+
+# docker volume prune  =  it removed all unused docker volume
+
+# docker volume inspect (volume inspect) =  inspect the volume details 
+
+# docker container inspect (container name)  =  inspect the conatiner details 
+
+# docker stop $(docker ps -a -q) =  stop all running containers
+
+# docker rm $(docker ps -a -q) =  delete all stopped container 
+
+# docker rmi -f $(docker images -q) =  delete all images 
+
+-------------------------------------------------
+
+Docker Port Expose 
+
+# docker run -td --name techserver -p 80:80 ubuntu 
+	( d= deamon -p= port expose)
+
+# docker port (containername)  = check the expose port 
+
+------------------------
+
+difference between docker attach and docker exec /  expose and publish
+
+
+--------------------------------------
+How to push docker image in docker hub 
+
+# docker login  =  login command to docker hub with username and password 
+
+# docker tag image1 dockerid /(newimagename) 
+
+# docker push dockerid/newimage 
+ 
+# docker pull dockerid/newimage 
+
+# docker run -it --name mycon dockerid/newimage /bin/bash 
+
+
+
+
 
 
 
